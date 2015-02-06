@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :show, :update, :destroy]
+
   def index
     @users = User.all
   end
@@ -22,9 +23,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.create(user_params)
-    session[:user_id] = @user.id
-    @current_user = @user
-    redirect_to root_path
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to :action => :show
+    else
+      redirect_to root_path
+    end
   end
 
   def edit
