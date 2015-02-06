@@ -9,7 +9,17 @@ class AnswersController < ApplicationController
   end
 
   def new
+    @answer = Answer.new()
+  end
 
+  def create
+    @answer = Answer.new(answer_params)
+    if @answer.save
+      redirect_to @answer
+      render :show
+    else
+      render :new
+    end
   end
 
   def edit
@@ -17,6 +27,13 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+  private
 
+  def set_answer
+    @answer = Answer.find(params[:id])
+  end
+
+  def answer_params
+    params.require(:answer).permit(:content, :question_id, :user_id)
   end
 end
