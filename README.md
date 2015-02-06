@@ -1,5 +1,6 @@
 # Mac Overflow
-Mac &amp; Cheese Megaflow
+
+No apples found here. Strictly Mac &amp; Cheese Megaflow.
 
 ## Brought to you by:
 [Ricky Thomas](https://www.github.com/ricky-thomas)
