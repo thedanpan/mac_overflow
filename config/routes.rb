@@ -10,9 +10,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :questions do
-    # resources :answers, shallow: true do
+    resources :answers, shallow: true
     #   resources :votes, :comments, only [:show, :edit]
-    # end
   end
 
   # resources :votes
