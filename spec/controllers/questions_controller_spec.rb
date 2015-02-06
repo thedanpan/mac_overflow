@@ -11,5 +11,22 @@ describe QuestionsController do
     end
   end
 
+  # describe 'Get #new' do
+  #   context "with a current_user" do
+  #     it "renders the index template" do
+  #     end
+  #   end
+
+  #   context "without a current_user" do
+  #     it "redirects to the root" do
+  #     end
+  #   end
+  # end
+
+  # describe 'POST #create' do
+  #   it "creates a new question"
+  # end
+
+
 
 end
