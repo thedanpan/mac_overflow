@@ -40,6 +40,11 @@ class QuestionsController < ApplicationController
     redirect_to @question
   end
 # DELETE /questions/:id
+  def destroy
+    @question = Question.find(params[:id])
+    @question.destroy
+    redirect_to :root
+  end
 
   private
 
