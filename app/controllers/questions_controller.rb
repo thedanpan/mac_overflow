@@ -22,4 +22,23 @@ class QuestionsController < ApplicationController
     render 'show'
   end
 
+# GET /questions/:id/edit
+  def edit
+    @question = Question.find(params[:id])
+  end
+
+# GET /questions/:id
+
+
+# PATCH  /questions/:id
+
+
+# DELETE /questions/:id
+
+  private
+
+    def post_params
+      params.require(:question).permit(:title, :prompt, :user_id)
+    end
+
 end
