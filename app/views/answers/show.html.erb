@@ -9,6 +9,6 @@ Answered <%= answer.created_at %>
 
 <%= render 'new' %>
 
-<% if current_user = answer.user_id %>
+<%= if current_user = answer.user_id %>
   <%= link_to 'Edit', edit_answer_path %>
 <% end %>

@@ -1,5 +1,7 @@
 <h1><%= @answers.count %> Answers</h1>
 <hr>
 <% @answers.each do |answer| %>
-  <%= render 'show', answer_path(answer) %>
+
+  <%= render 'show' %>
+
 <% end %>
