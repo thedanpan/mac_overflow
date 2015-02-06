@@ -9,4 +9,8 @@ describe Question do
   it "is invalid without a title" do
     expect(build(:question, title: nil).valid?).to eq false
   end
+
+  it "is invalid without a prompt" do
+    expect(build(:question, prompt: nil).valid?).to eq false
+  end
 end
