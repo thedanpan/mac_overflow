@@ -28,11 +28,12 @@ class QuestionsController < ApplicationController
   end
 
 # GET /questions/:id
-
+  def show
+    @question = Question.find(params[:id])
+    @comments = @question.comments
+  end
 
 # PATCH  /questions/:id
-
-
 # DELETE /questions/:id
 
   private
