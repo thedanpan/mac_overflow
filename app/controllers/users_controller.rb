@@ -16,6 +16,12 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -35,10 +41,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def update
-    @user = User.find(params[:id])
-    @user.update(params[:user])
-  end
+  # def update
+  #   @user = User.find(params[:id])
+  #   @user.update(params[:user])
+  # end
 
   private
 
