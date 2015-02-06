@@ -5,4 +5,6 @@ class User < ActiveRecord::Base
   has_many :answers
   has_many :votes
   has_many :comments
+
+  validates_presence_of :name, :email, :password
 end
