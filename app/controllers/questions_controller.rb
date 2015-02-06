@@ -34,6 +34,11 @@ class QuestionsController < ApplicationController
   end
 
 # PATCH  /questions/:id
+  def update
+    @question = Question.find(params[:id])
+    @question.update!(question_params)
+    redirect_to @question
+  end
 # DELETE /questions/:id
 
   private
