@@ -1,0 +1,6 @@
+<%= form_for(@answer), html: {class: "new_answer_form"} do |f| %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+
+  <%= f.submit %>
+<% end %>
