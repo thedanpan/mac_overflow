@@ -1,16 +1,14 @@
 <%= answer.content %>
-  By <%= answer.user_id.name %>
-  Edited <%= answer.updated_at %>
-  Answered <%= answer.created_at %>
+By <%= answer.user_id.name %>
+Edited <%= answer.updated_at %>
+Answered <%= answer.created_at %>
 
-  <% answer.comments.each do |comment| %>
-    <%= render 'comments/show' %>
-  <% end %>
+<% answer.comments.each do |comment| %>
+  <%= render 'comments/show' %>
+<% end %>
 
-  <%= render 'new' %>
+<%= render 'new' %>
 
-  <%= if current_user = answer.user_id %>
-    <%= link_to 'Edit', edit_answer_path %>
-  <% end %>
-
+<%= if current_user = answer.user_id %>
+  <%= link_to 'Edit', edit_answer_path %>
 <% end %>
