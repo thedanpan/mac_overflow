@@ -35,6 +35,10 @@ class AnswersController < ApplicationController
   end
 
   def destroy
+    @answer.destroy
+    redirect_to answers_url
+  end
+
   private
 
   def set_answer
