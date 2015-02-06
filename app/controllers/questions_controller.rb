@@ -15,4 +15,11 @@ class QuestionsController < ApplicationController
     end
   end
 
+#POST /questions
+  def create
+    @question = Question.create(question_params)
+    current_user.questions << @question
+    render 'show'
+  end
+
 end
