@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_many :votes
   has_many :comments
 
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email, :password_digest
 
 def authenticate_login(session_params)
     if session_params[:email] == self.email
