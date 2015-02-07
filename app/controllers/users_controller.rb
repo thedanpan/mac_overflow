@@ -33,20 +33,12 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_path
+      redirect_to user_path(@user)
     else
       redirect_to root_path
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  # def update
-  #   @user = User.find(params[:id])
-  #   @user.update(params[:user])
-  # end
 
   private
 
