@@ -1,13 +1,22 @@
-<h1><%= @question.title %><br></h1>
-<%= @question.prompt %><br><br>
+<div class="question_prompt">
+  <h1><%= @question.title %></h1><br><hr>
+  <%= @question.prompt %><br><br>
+  <%= @question.user.name %><br><br>
+  <%= Time.now.hour - @question.updated_at.hour%>hrs ago
+  <%= Time.now.hour - @question.created_at.hour%>hrs ago
+</div>
 
-<% @answers.each do |answer| %>
-  <strong>Answer:</strong><br>
-  <%= answer.content %><br>
-  By <%= answer.user_id %><br>
-  Edited <%= answer.updated_at.hour - Time.now.hour%>hrs ago<br>
-  Answered <%=answer.created_at.hour - Time.now.hour%>hrs ago
-  <hr>
-<% end %>
+<hr><br>
+
+<div class="answers_list">
+  <% @answers.each do |answer| %>
+    <strong>Answer:</strong><br>
+    <%= answer.content %><br><br>
+    By <%= answer.user.name %><br>
+    Edited <%= Time.now.hour - answer.updated_at.hour%>hrs ago<br>
+    Answered <%= Time.now.hour - answer.created_at.hour%>hrs ago
+    <hr>
+  <% end %>
+</div>
 
 <%= link_to "new answer", new_question_answer_path(@question) %>

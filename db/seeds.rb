@@ -21,7 +21,7 @@ users = User.all
 
 20.times do
   Question.create(
-    title: Faker::Lorem.words(3),
+    title: Faker::Lorem.sentence,
     prompt: Faker::Lorem.paragraph,
     user_id: users.sample.id
     )
