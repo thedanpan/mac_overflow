@@ -25,11 +25,15 @@ class AnswersController < ApplicationController
   end
 
   def update
-    if @answer.update(answer_params)
-      redirect_to @answer
-      render :show
+    if current_user = @answer.user_id
+      if @answer.update(answer_params)
+        redirect_to @answer
+        render :show
+      else
+        render :edit
+      end
     else
-      render :edit
+      redirect_to root_path
     end
   end
 
