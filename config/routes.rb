@@ -15,7 +15,10 @@ Rails.application.routes.draw do
   end
 
   # resources :votes
-  # resources :comments
+  resources :answers do
+    resources :comments
+  end
+
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
