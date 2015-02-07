@@ -44,7 +44,8 @@ answers = Answer.all
   Comment.create(
     content: Faker::Lorem.paragraph,
     commentable_id: rand(1..10),
-    commentable_type: ["question", "answer"].sample
+    commentable_type: ["question", "answer"].sample,
+    user_id: rand(1..10)
     )
 end
 
