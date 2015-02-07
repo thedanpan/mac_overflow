@@ -22,13 +22,14 @@ class AnswersController < ApplicationController
   end
 
   def edit
+    @answer = Answer.find(params[:id])
+    @question = Question.find(params[:question_id])
   end
 
   def update
     if current_user = @answer.user_id
       if @answer.update(answer_params)
-        redirect_to @answer
-        render :show
+        redirect_to question_path(@answer.question_id)
       else
         render :edit
       end
