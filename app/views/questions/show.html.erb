@@ -14,7 +14,8 @@
     <%= answer.content %><br><br>
     By <%= answer.user.name %><br>
     Edited <%= Time.now.hour - answer.updated_at.hour%>hrs ago<br>
-    Answered <%= Time.now.hour - answer.created_at.hour%>hrs ago
+    Answered <%= Time.now.hour - answer.created_at.hour%>hrs ago<br>
+    <%= link_to "delete", [@question, answer], :method => :delete %>
     <hr>
   <% end %>
 </div>
