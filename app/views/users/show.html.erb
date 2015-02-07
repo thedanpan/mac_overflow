@@ -3,7 +3,9 @@
 <span><%= link_to "Edit", edit_user_path(@user) %></span><br>
 <span><%= link_to "Delete", user_path(@user), method: :delete %></span>
 
-<%= link_to "Add Question", new_question_path %>
+<% if @user.id == current_user.id  %>
+  <%= link_to "Add Question", new_question_path %>
+<% end %>
 
 <div class="question-list">
   <ul>
