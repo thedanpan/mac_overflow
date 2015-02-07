@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
 
 #GET /questions
   def index
@@ -31,6 +31,7 @@ class QuestionsController < ApplicationController
 # GET /questions/:id
   def show
     @question = Question.find(params[:id])
+    @answers = @question.answers
     @comments = @question.comments
   end
 
@@ -48,6 +49,10 @@ class QuestionsController < ApplicationController
   end
 
   private
+
+    def set_question
+      @question = Question.find(params[:id])
+    end
 
     def question_params
       params.require(:question).permit(:title, :prompt)
