@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
 #GET /questions/new
   def new
+    @question = Question.new
     if current_user
       render 'new'
     else
@@ -19,7 +20,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     current_user.questions << @question
-    render 'show'
+    redirect_to user_path(current_user.id)
   end
 
 # GET /questions/:id/edit
@@ -48,8 +49,8 @@ class QuestionsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:question).permit(:title, :prompt, :user_id)
+    def question_params
+      params.require(:question).permit(:title, :prompt)
     end
 
 end
