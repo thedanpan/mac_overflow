@@ -19,7 +19,7 @@
     Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
     <% if current_user.id == answer.user_id %>
       <%= link_to "Delete", [@question, answer], :method => :delete %><br>
-      <%= link_to 'Edit', [@question, answer] %>
+      <%= link_to 'Edit', edit_question_answer_path(@question.id, answer) %>
     <% end %>
 
     <hr>
