@@ -49,8 +49,8 @@ class QuestionsController < ApplicationController
 
   private
 
-    def post_params
-      params.require(:question).permit(:title, :prompt, :user_id)
+    def question_params
+      params.require(:question).permit(:title, :prompt)
     end
 
 end
