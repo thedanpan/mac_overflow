@@ -2,7 +2,6 @@ class AnswersController < ApplicationController
   before_action :set_answer, only: [:show, :edit, :update, :destroy]
 
   def show
-    @answer = Answer.find(params[:id])
   end
 
   def new
