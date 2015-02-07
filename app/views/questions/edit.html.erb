@@ -1,0 +1,10 @@
+<%= form_for @question do |f| %>
+
+  <%= f.label :title %>
+  <%= f.text_area :title %>
+
+  <%= f.label :prompt %>
+  <%= f.text_area :prompt %>
+
+  <%= f.submit %>
+<% end %>
