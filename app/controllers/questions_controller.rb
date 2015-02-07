@@ -8,6 +8,7 @@ class QuestionsController < ApplicationController
 
 #GET /questions/new
   def new
+    @question = Question.new
     if current_user
       render 'new'
     else
