@@ -20,7 +20,7 @@ class QuestionsController < ApplicationController
   def create
     @question = Question.create(question_params)
     current_user.questions << @question
-    render 'show'
+    redirect_to root_path
   end
 
 # GET /questions/:id/edit
