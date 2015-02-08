@@ -11,9 +11,6 @@ class CommentsController < ApplicationController
     @answer = Answer.find(params[:commentable_id])
   end
 
-  def edit
-  end
-
   def create
     @comment = Comment.new(comment_params)
     @answer = Answer.find(params[:commentable_id])
@@ -26,7 +23,21 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @comment = Comment.find(params[:id])
+    @answer = Answer.find(params[:commentable_id])
+  end
+
   def update
+    if current_user = @comment.user_id
+      if @comment.update(comment_params)
+        redirect_to question_path(@answer.question_id)
+      else
+        render :edit
+      end
+    else
+      redirect_to root_path
+    end
   end
 
   def destroy
