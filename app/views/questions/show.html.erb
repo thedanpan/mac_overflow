@@ -1,14 +1,16 @@
-<div class="question_prompt">
-  <h1><%= @question.title %></h1><br><hr>
-  <%= @question.prompt %><br><br>
-  By <%= @question.user.name %><br>
-  Edited <%= ((Time.now.utc - @question.updated_at)/3600).round(2).to_s %> hrs ago<br>
-  Answered<%= ((Time.now.utc - @question.created_at)/3600).round(2).to_s %> hrs ago
-  <% if current_user.id == @question.user_id %>
-    <%= button_to "Edit", edit_question_path(@question), :method => :get %>
-    <%= button_to "Delete", @question, :method => :delete %>
-  <% end %>
-</div><hr><br>
+<div class="row">
+  <div class="question_prompt">
+    <h1><%= @question.title %></h1><br><hr>
+    <%= @question.prompt %><br><br>
+    By <%= @question.user.name %><br>
+    Edited <%= ((Time.now.utc - @question.updated_at)/3600).round(2).to_s %> hrs ago<br>
+    Answered<%= ((Time.now.utc - @question.created_at)/3600).round(2).to_s %> hrs ago
+    <% if current_user.id == @question.user_id %>
+      <%= button_to "Edit", edit_question_path(@question), :method => :get %>
+      <%= button_to "Delete", @question, :method => :delete %>
+    <% end %>
+  </div><hr><br>
+</div>
 <%= render "answers/show" %>
 <hr>
 <%= link_to "Add Answer", new_question_answer_path(@question) %>
