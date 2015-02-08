@@ -20,7 +20,7 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
 
 ## Goals:
   - Agile Teamwork through clear and effective communication
-  - IKE
+  - Integrity, Kindness, Effort
   - Firm understanding of Rails and TDD
   - Polymorphic Associations
   - Thorough understanding of mac & cheese
