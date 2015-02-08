@@ -27,7 +27,4 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
   - Megaflow
   - UX | UI
   - CSS
-
-
-## [Mac Overflow Trello](https://trello.com/b/E5N6byo9/hack-over-flow)
-  - contains MVP Stories
+  - 
