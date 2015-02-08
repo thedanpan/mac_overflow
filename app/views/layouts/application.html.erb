@@ -8,10 +8,10 @@
 </head>
 <body>
 <header>
-  <nav class="navbar navbar-default">
+  <nav id="login-nav" class="navbar navbar-default">
     <%= render "layouts/navbar"%>
   </nav>
-  <nav class="navbar navbar-default">
+  <nav id="button-nav" class="navbar navbar-default">
     <ul class="nav nav-pills">
       <li class = "navbar-left"><%= button_to "Home", root_path, :class => "btn btn-default navbar-btn navbar-left", :method => :get %></li>
       <li class = "navbar-right"><%= link_to "Questions", questions_path, :class => "btn btn-default navbar-btn ", :method => :get %></li>
