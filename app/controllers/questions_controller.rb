@@ -25,24 +25,21 @@ class QuestionsController < ApplicationController
 
 # GET /questions/:id/edit
   def edit
-    @question = Question.find(params[:id])
   end
 
 # GET /questions/:id
   def show
-    @question = Question.find(params[:id])
     @answers = @question.answers
   end
 
 # PATCH  /questions/:id
   def update
-    @question = Question.find(params[:id])
     @question.update!(question_params)
     redirect_to @question
   end
+
 # DELETE /questions/:id
   def destroy
-    @question = Question.find(params[:id])
     @question.destroy
     redirect_to :root
   end
