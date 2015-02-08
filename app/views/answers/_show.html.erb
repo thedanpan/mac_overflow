@@ -1,25 +1,44 @@
-<div class="answers_list">
-  <% @answers.each do |answer| %>
-    <strong>Answer:</strong><br>
-    <%= answer.content %><br><br>
+<div class="container-fluid">
+  <div class="answers_list">
 
-    By <%= answer.user.name %><br>
-    Edited <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
-    Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
+    <% @answers.each do |answer| %>
 
-    <% if current_user.id == answer.user_id %>
-      <%= link_to "Delete", [@question, answer], :method => :delete %><br>
-      <%= link_to 'Edit', edit_question_answer_path(@question.id, answer) %>
+      <div class="row">
+        <div class="vote_container col-xs-2 col-sm-1">
+          <div class="row" id="cheese_icons">
+              <%= link_to "#{image_tag('/cheese_up.png')}".html_safe, answer_votes_path(answer.id, @vote), :method => :post %>
+              <%#image_submit_tag("/cheese_up.png", answer_votes_path(answer.id, @vote), :method => :post, class:"cheese_img") %>
+              <%=link_to "#{image_tag('/cheese_down.png')}".html_safe %>
+          </div>
+          <div class="vote_count">
+            <%= answer.votes.count %>
+          </div>
+        </div>
+
+        <div class="answer col-xs-10 col-sm-11">
+          <strong>Answer:</strong><br>
+          <%= answer.content %><br><br>
+
+          By <%= answer.user.name %><br>
+          Edited <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
+          Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
+
+          <% if current_user.id == answer.user_id %>
+            <%= link_to "Delete", [@question, answer], :method => :delete %><br>
+            <%= link_to 'Edit', edit_question_answer_path(@question.id, answer) %>
+          <% end %>
+          <hr>
+          <% answer.comments.each do |comment| %>
+            <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago  |
+            <% if current_user.id == comment.user_id %>
+              <%= link_to "Delete", [answer, comment], :method => :delete %>  |
+              <%= link_to 'Edit', edit_answer_comment_path(answer.id, comment) %>
+            <% end %><hr>
+          <% end %>
+          <%= link_to "Add Comment", new_answer_comment_path(answer) %>
+          <hr>
+        </div>
+      </div>
     <% end %>
-    <hr>
-    <% answer.comments.each do |comment| %>
-      <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago  |
-      <% if current_user.id == comment.user_id %>
-        <%= link_to "Delete", [answer, comment], :method => :delete %>  |
-        <%= link_to 'Edit', edit_answer_comment_path(answer.id, comment) %>
-      <% end %><hr>
-    <% end %>
-    <%= link_to "Add Comment", new_answer_comment_path(answer) %>
-    <hr>
-  <% end %>
+  </div>
 </div>
