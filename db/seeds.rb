@@ -19,7 +19,7 @@ end
 users = User.all
 
 
-20.times do
+10.times do
   Question.create(
     title: Faker::Lorem.sentence,
     prompt: Faker::Lorem.paragraph,
@@ -30,7 +30,7 @@ end
 questions = Question.all
 
 
-40.times do
+20.times do
   Answer.create(
     content: Faker::Lorem.paragraph,
     question_id: questions.sample.id,
@@ -44,10 +44,22 @@ answers = Answer.all
   Comment.create(
     content: Faker::Lorem.paragraph,
     commentable_id: rand(1..10),
-    commentable_type: ["question", "answer"].sample,
-    user_id: rand(1..10)
+    commentable_type: [Question, Answer].sample,
+    user_id: users.sample.id
     )
 end
+
+comments = Comment.all
+
+
+100.times do
+  Vote.create(
+    votable_id: rand(1..10),
+    votable_type: [Question, Answer].sample,
+    user_id: users.sample.id
+    )
+end
+
 
 
 
