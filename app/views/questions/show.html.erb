@@ -4,8 +4,10 @@
   By <%= @question.user.name %><br>
   Edited <%= ((Time.now.utc - @question.updated_at)/3600).round(2).to_s %> hrs ago<br>
   Answered<%= ((Time.now.utc - @question.created_at)/3600).round(2).to_s %> hrs ago
-  <%= button_to "Edit", edit_question_path(@question), :method => :get %>
-  <%= button_to "delete", @question, :method => :delete %>
+  <% if current_user.id == @question.user_id %>
+    <%= button_to "Edit", edit_question_path(@question), :method => :get %>
+    <%= button_to "Delete", @question, :method => :delete %>
+  <% end %>
 </div>
 
 <hr><br>
@@ -23,12 +25,16 @@
     <% end %>
     <hr>
     <% answer.comments.each do |comment| %>
-      <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago<br><hr>
+      <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago  |
+      <% if current_user.id == comment.user_id %>
+        <%= link_to "Delete", [answer, comment], :method => :delete %>  |
+        <%= link_to 'Edit', edit_answer_comment_path(answer.id, comment) %>
+      <% end %><hr>
     <% end %>
     <%= link_to "Add Comment", new_answer_comment_path(answer) %>
 
     <hr>
   <% end %>
 </div>
-
-<%= link_to "new answer", new_question_answer_path(@question) %>
+<hr>
+<%= link_to "Add Answer", new_question_answer_path(@question) %>
