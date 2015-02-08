@@ -12,8 +12,13 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
 [Darrin Reeves](https://www.github.com/dxr4841)
 
 
+## MVP:
+  - A user can login/signup/logout
+  - A user can post questions, answers, comments only when logged in
+  - A user can edit/delete questions, answers, comments only when logged in and is the author
+
+
 ## Goals:
-  - MVP
   - Agile Teamwork through clear and effective communication
   - IKE
   - Firm understanding of Rails and TDD
@@ -22,6 +27,7 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
   - Megaflow
   - UX | UI
   - CSS
+
 
 ## [Mac Overflow Trello](https://trello.com/b/E5N6byo9/hack-over-flow)
   - contains MVP Stories
