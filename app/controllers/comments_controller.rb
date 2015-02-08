@@ -41,6 +41,10 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    comment = Comment.find(params[:id])
+    @question = Question.find(@answer.question.id)
+    comment.destroy
+    redirect_to question_path(@question)
   end
 
   private
