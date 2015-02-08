@@ -1,3 +1,61 @@
+body {
+  height:100%;
+  width:100%;
+  position:absolute;
+}
+
+header {
+  background-image: url("http://popdose.com/wp-content/uploads/macaroni-and-cheese.jpg");
+}
+
+#main-ct {
+  position:relative;
+  background-image: url("http://thefreecheese.com/wp-content/uploads/2014/11/cheese-wallpaper.jpg");
+  background-size: 100% 100%;
+  margin-top: -20px;
+  height: 100%;
+  border-top: 2px solid black;
+}
+
+ .container {
+  background-color: white;
+  height: 100%;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  font-family: 'Lobster Two', cursive;
+  text-align: center;
+}
+
 .navbar-right {
   margin-right: 0px;
+}
+
+#logo {
+  font-family: 'Lobster Two', cursive;
+  font-size:3em;
+}
+
+#welcome-img {
+  margin-top:30px;
+}
+
+#login-nav {
+  background-color: rgb(178, 161, 124);
+  border:1px solid black;
+}
+
+#button-nav {
+  background-color: rgb(178, 161, 124);
+  border:1px solid black;
+}
+
+.btn {
+  background-color: rgb(216, 181, 106);
+  border:1px solid black;
+  font-family: 'Lobster Two';
+}
+
+.btn:hover {
+  border:1px solid rgb(239, 210, 93);
+  color:rgb(239, 197, 71);
 }
