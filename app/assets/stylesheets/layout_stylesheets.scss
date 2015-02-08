@@ -24,6 +24,7 @@ header {
   border-left: 2px solid black;
   font-family: 'Lobster Two', cursive;
   text-align: center;
+  overflow:scroll;
 }
 
 .navbar-right {
@@ -59,3 +60,25 @@ header {
   border:1px solid rgb(239, 210, 93);
   color:rgb(239, 197, 71);
 }
+
+.vote_container {
+  top: 3em;
+}
+
+.answers_list {
+  text-align:left;
+}
+
+#cheese_icons {
+  margin: 0 auto;
+  padding-left: 5px;
+}
+
+.vote_count {
+  text-align: center;
+  width: 45px;
+  border: 1px solid black;
+  padding: 1px;
+  margin: 0 auto;
+}
+
