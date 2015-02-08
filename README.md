@@ -27,4 +27,3 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
   - Megaflow
   - UX | UI
   - CSS
-  - 
