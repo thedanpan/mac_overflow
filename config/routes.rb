@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
   resources :questions do
     resources :answers
-    #   resources :votes, :comments, only [:show, :edit]
   end
 
   # resources :votes
@@ -19,10 +18,16 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :answers do
+    resources :votes, only: [:show, :create]
+  end
+
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   post '/logout' => 'sessions#destroy'
+
+  delete '/answers/:answer_id/votes/:id' => 'votes#destroy', :as => "delete_vote"
 
 
 
