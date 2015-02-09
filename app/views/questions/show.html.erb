@@ -15,4 +15,6 @@
 </div>
 <%= render "answers/show" %>
 <hr>
-<%= link_to "Add Answer", new_question_answer_path(@question) %>
+<% if current_user %>
+  <%= link_to "Add Answer", new_question_answer_path(@question) %>
+<% end %>
