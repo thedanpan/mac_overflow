@@ -22,11 +22,13 @@
           By <%= answer.user.name %><br>
           Edited <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
           Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
-
-          <% if current_user.id == answer.user_id %>
-            <%= link_to "Delete", [@question, answer], :method => :delete %><br>
-            <%= link_to 'Edit', edit_question_answer_path(@question.id, answer) %>
+          <% if current_user %>
+            <% if current_user.id == answer.user_id %>
+              <%= link_to "Delete", [@question, answer], :method => :delete %><br>
+              <%= link_to 'Edit', edit_question_answer_path(@question.id, answer) %>
+            <% end %>
           <% end %>
+
           <hr>
           <% answer.comments.each do |comment| %>
             <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago  |
