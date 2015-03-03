@@ -13,8 +13,15 @@
     <% end %>
   </div><hr><br>
 </div>
+
 <%= render "answers/show" %>
 <hr>
-<% if current_user %>
-  <%= link_to "Add Answer", new_question_answer_path(@question) %>
-<% end %>
+
+
+<button id="show-answer-form"> Add Answer </button>
+
+<div id="add-answer" style="display:none">
+  <% if current_user %>
+    <%= render :partial => "answers/form" %>
+  <% end %>
+</div>
