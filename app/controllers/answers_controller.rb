@@ -14,7 +14,7 @@ class AnswersController < ApplicationController
     current_user.answers << @answer
     @question.answers << @answer
     if @answer.save
-      redirect_to question_path(@question)
+      render json: @answer.to_json
     else
       render :new
     end
