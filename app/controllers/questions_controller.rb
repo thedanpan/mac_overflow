@@ -29,6 +29,7 @@ class QuestionsController < ApplicationController
 
 # GET /questions/:id
   def show
+    @answer = Answer.new
     @answers = @question.answers
   end
 

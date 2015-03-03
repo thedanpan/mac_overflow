@@ -37,10 +37,12 @@ questions = Question.all
 
 
 20.times do
+  looping_user = users.sample
   Answer.create(
     content: Faker::Lorem.paragraph,
     question_id: questions.sample.id,
-    user_id: users.sample.id
+    user_id: looping_user.id,
+    username: looping_user.name
     )
 end
 
