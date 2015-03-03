@@ -12,50 +12,32 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).done(function(response) {
-      console.log(response);
       $(".answers_list").append(createAnswerRow(response));
+      $("#show-answer-form").toggle()
+      $("#add-answer").toggle()
     })
   });
 });
 
-
-// var Answer = function(id, content, question_id, user_id, created_at, updated_at) {
-//   this.id = id,
-//   this.content = content,
-//   this.question_id = question_id,
-//   this.user_id = user_id,
-//   this.created_at = created_at,
-//   this.updated_at = updated_at
-// }
-
-
 var createAnswerRow = function(answer){
 
-  var htmlList = $(".answer-row");
-  htmlList.append("<div class="row">
-        <div class="vote_container col-xs-2 col-sm-1">
-          <div class="row" id="cheese_icons">
-              <a rel="nofollow" data-method="post" href="/answers/"" + answer.id + "/votes"><img src="/cheese_up.png" alt="Cheese up" /></a>
-              <a href="/questions/"" + answer.question_id +"><img src="/cheese_down.png" alt="Cheese down" /></a>
-          </div>
-          <div class="vote_count">" +
-            answer.votes.count +
-          "</div>
-        </div>
-
-        <div class="answer col-xs-10 col-sm-11">
-          <strong>Answer:</strong><br>" +
-          answer.content + "<br><br>
-
-          By" +  answer.user.name + "<br>
-          Edited" + answer.updated_at + "hrs ago<br>
-          Answered" + answer.created_at + "hrs ago<br>
-
-          <hr>
-            <a href="/answers/"" + answer.id + "/comments/new">Add Comment</a>
-          <hr>
-        </div>
-      </div>
-")
-
-}
+  var html = "<div class='row'>";
+      html += "<div class='vote_container col-xs-2 col-sm-1'>";
+      html += "<div class='row' id='cheese_icons'>";
+      html += "<a rel='nofollow' data-method='post' href='/answers/" + answer.id + "/votes'><img src='/cheese_up.png' alt='Cheese up' /></a>";
+      html += "<a href='/questions/" + answer.question_id + "><img src='/cheese_down.png' alt='Cheese down' /></a>";
+      html += "</div>";
+      html += "<div class='vote_count'>" + 0 + "</div>";
+      html += "</div>";
+      html += "<div class='answer col-xs-10 col-sm-11'>";
+      html += "<strong>Answer:</strong><br>" + answer.content + "<br><br>";
+      html += "By " +  answer.username + "<br>";
+      html += "Edited " + answer.updated_at + "hrs ago<br>";
+      html += "Answered " + answer.created_at + "hrs ago<br>";
+      html += "<hr>";
+      html += "<a href='/answers/" + answer.id + "/comments/new'>Add Comment</a>";
+      html += "<hr>";
+      html += "</div>";
+      html += "</div>";
+  return html
+};
