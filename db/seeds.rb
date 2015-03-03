@@ -1,4 +1,6 @@
 require 'faker'
+# require 'nokogiri'
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -7,12 +9,16 @@ require 'faker'
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+mac_and_cheese_page = Nokogiri::HTML(open("https://www.google.com/search?q=mac+and+cheese&biw=1361&bih=779&source=lnms&tbm=isch&sa=X&ei=Ktj1VIauN8m9ggSCn4LIDA&ved=0CAYQ_AUoAQ#tbm=isch&q=bowl+of+mac+and+cheese"))
+mac_and_cheese_links = mac_and_cheese_page.css('img').map {|image| image['src']}
+
 10.times do
   User.create(
       name: Faker::Name.name,
       email: Faker::Internet.email,
       password: "123",
-      pic_url: Faker::Internet.url
+      pic_url: mac_and_cheese_links.sample
       )
 end
 
