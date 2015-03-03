@@ -2,7 +2,6 @@ $(document).ready(function() {
   $("#show-answer-form").click(function() {
       $("#show-answer-form").toggle()
       $("#add-answer").toggle()
-      console.log("hey")
     })
 
   $("#add-answer").on("submit", function(event) {
