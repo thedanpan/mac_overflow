@@ -11,6 +11,7 @@ class AnswersController < ApplicationController
 
   def create
     @answer = Answer.new(answer_params)
+    @answer.username = current_user.name
     current_user.answers << @answer
     @question.answers << @answer
     if @answer.save
