@@ -1,5 +1,28 @@
-<% @users.each do |user| %>
-  <p>Name: <%= user.name %></p><br>
-  <p> Email: <%= user.email %></p><br>
+<div class="container-fluid">
+  <div id="users_list">
 
-<% end %>
+    <% @users.each do |user| %>
+
+      <div class="row">
+
+        <div class="pic_container col-xs-6 col-sm-6">
+          <div class="user_pic">
+            <img src="<%= user.pic_url %>">
+          </div>
+        </div>
+
+        <div class="info_container col-xs-6 col-sm-6">
+          <div class="user_info">
+            <p><h4>Name:</h4> <%= user.name %></p><br>
+            <p><h4>Email:</h4> <%= user.email %></p><br>
+          </div>
+        </div>
+
+      </div>
+
+      <hr>
+
+    <% end %>
+
+  </div>
+</div>

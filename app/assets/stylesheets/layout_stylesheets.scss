@@ -8,6 +8,12 @@ header {
   background-image: url("http://popdose.com/wp-content/uploads/macaroni-and-cheese.jpg");
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
 #main-ct {
   position:relative;
   background-image: url("http://thefreecheese.com/wp-content/uploads/2014/11/cheese-wallpaper.jpg");
@@ -84,4 +90,32 @@ header {
   border: 1px solid black;
   padding: 1px;
   margin: 0 auto;
+}
+
+#users_list {
+  margin: 5% 25%;
+}
+
+.pic_container {
+  padding-top: 3%;
+}
+
+.info_container {
+  text-align: left;
+  font-size: 1.25em;
+}
+
+#user_profile {
+  margin: 10% 20%;
+}
+
+#user_settings {
+  float: right;
+  text-align: right;
+  padding: 55% 0 0 0;
+}
+
+#user-questions-list {
+  font-size: 1.25em;
+  margin-top: 10%;
 }
