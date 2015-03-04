@@ -1,13 +1,11 @@
-<ul>
+<div id="login_form">
   <%= form_for login_path do |f| %>
-    <li>
-      <p>email</p>
-      <%= f.text_field :email %>
-    </li>
-    <li>
-      <p>password</p>
-      <%= f.password_field :password %>
-    </li>
-    <li> <%= f.submit %> </li>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %><br>
+
+      <%= f.label :password %><br>
+      <%= f.password_field :password %><br><br>
+
+      <%= f.submit %>
   <% end %>
-</ul>
+</div>
