@@ -1,8 +1,10 @@
 $(document).ready(function() {
-  $("#show-answer-form").click(function() {
-      $("#show-answer-form").toggle()
-      $("#add-answer").toggle()
-    })
+  $("#show-answer-form").click(function(event) {
+    event.preventDefault();
+    console.log("it's working!");
+      $("#show-answer-form").toggle();
+      $("#add-answer").toggle();
+    });
 
   $("#add-answer").on("submit", function(event) {
     event.preventDefault();
@@ -12,11 +14,13 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).done(function(response) {
+      $('#answer_content').val('')
       $(".answers_list").append(createAnswerRow(response));
       $("#show-answer-form").toggle()
       $("#add-answer").toggle()
     })
   });
+
 });
 
 var createAnswerRow = function(answer){
@@ -25,7 +29,7 @@ var createAnswerRow = function(answer){
       html += "<div class='vote_container col-xs-2 col-sm-1'>";
       html += "<div class='row' id='cheese_icons'>";
       html += "<a rel='nofollow' data-method='post' href='/answers/" + answer.id + "/votes'><img src='/cheese_up.png' alt='Cheese up' /></a>";
-      html += "<a href='/questions/" + answer.question_id + "><img src='/cheese_down.png' alt='Cheese down' /></a>";
+      html += "<a href='/questions/" + answer.question_id + "'><img src='/cheese_down.png' alt='Cheese down' /></a>";
       html += "</div>";
       html += "<div class='vote_count'>" + 0 + "</div>";
       html += "</div>";
