@@ -23,8 +23,8 @@
           <%= answer.content %><br><br>
 
           By <%= answer.user.name %><br>
-          Edited <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
-          Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
+          Edited <%= answer.edited_time %><br>
+          Answered <%= answer.answered_time %><br>
           <% if current_user %>
             <% if current_user.id == answer.user_id %>
               <%= link_to "Delete", [@question, answer], :method => :delete %><br>
