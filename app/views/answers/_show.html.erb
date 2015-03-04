@@ -23,8 +23,8 @@
           <%= answer.content %><br><br>
 
           By <%= answer.user.name %><br>
-          Edited <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
-          Answered <%= ((Time.now.utc - answer.updated_at)/3600).round(2).to_s %>hrs ago<br>
+          Edited <%= answer.edited_time %><br>
+          Answered <%= answer.answered_time %><br>
           <% if current_user %>
             <% if current_user.id == answer.user_id %>
               <%= link_to "Delete", [@question, answer], :method => :delete %><br>
@@ -33,8 +33,9 @@
           <% end %>
 
           <hr>
+          Comments: <br><br>
           <% answer.comments.each do |comment| %>
-            <%= comment.content %> - <%= comment.user.name %> | <%= ((Time.now.utc - comment.created_at)/3600).round(2).to_s %> hrs ago  |
+            <%= comment.content %> - <%= comment.user.name %> | Edited <%= comment.edited_time %>  | Answered <%= comment.answered_time %>
             <% if current_user.id == comment.user_id %>
               <%= link_to "Delete", [answer, comment], :method => :delete %>  |
               <%= link_to 'Edit', edit_answer_comment_path(answer.id, comment) %>

@@ -3,8 +3,8 @@
     <h1><%= @question.title %></h1><br><hr>
     <%= @question.prompt %><br><br>
     By <%= @question.user.name %><br>
-    Edited <%= ((Time.now.utc - @question.updated_at)/3600).round(2).to_s %> hrs ago<br>
-    Answered<%= ((Time.now.utc - @question.created_at)/3600).round(2).to_s %> hrs ago
+    Edited <%= @question.edited_time %><br>
+    Answered <%= @question.answered_time %>
     <% if current_user %>
       <% if current_user.id == @question.user_id %>
         <%= button_to "Edit", edit_question_path(@question), :method => :get %>
