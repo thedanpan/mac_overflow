@@ -1,8 +1,10 @@
 $(document).ready(function() {
-  $("#show-answer-form").click(function() {
-      $("#show-answer-form").toggle()
-      $("#add-answer").toggle()
-    })
+  $("#show-answer-form").click(function(event) {
+    event.preventDefault();
+    console.log("it's working!");
+      $("#show-answer-form").toggle();
+      $("#add-answer").toggle();
+    });
 
   $("#add-answer").on("submit", function(event) {
     event.preventDefault();
