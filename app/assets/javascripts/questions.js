@@ -29,7 +29,7 @@ var createAnswerRow = function(answer){
       html += "<div class='vote_container col-xs-2 col-sm-1'>";
       html += "<div class='row' id='cheese_icons'>";
       html += "<a rel='nofollow' data-method='post' href='/answers/" + answer.id + "/votes'><img src='/cheese_up.png' alt='Cheese up' /></a>";
-      html += "<a href='/questions/" + answer.question_id + "><img src='/cheese_down.png' alt='Cheese down' /></a>";
+      html += "<a href='/questions/" + answer.question_id + "'><img src='/cheese_down.png' alt='Cheese down' /></a>";
       html += "</div>";
       html += "<div class='vote_count'>" + 0 + "</div>";
       html += "</div>";
