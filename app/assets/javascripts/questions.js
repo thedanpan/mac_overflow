@@ -14,11 +14,13 @@ $(document).ready(function() {
       type: "POST",
       data: $target.serialize()
     }).done(function(response) {
+      $('#answer_content').val('')
       $(".answers_list").append(createAnswerRow(response));
       $("#show-answer-form").toggle()
       $("#add-answer").toggle()
     })
   });
+
 });
 
 var createAnswerRow = function(answer){
