@@ -1,20 +1,41 @@
-<%= @user.name %><br>
-<%= @user.email %><br>
-<div id="profile_pic">
-  <img src="<%=@user.pic_url%>">
-</div><br><br>
+<div id="user_profile">
+  <div class="row">
+    <hr>
+    <div class="pic_container col-xs-4 col-sm-4">
+      <div id="profile_pic">
+        <img src="<%=@user.pic_url%>">
+      </div>
+    </div>
 
-<% if current_user %>
-  <% if @user.id == current_user.id  %>
-    <%= link_to "Edit", edit_user_path(@user) %><br>
-    <%= link_to "Delete", user_path(@user), method: :delete %>
-    <%= link_to "Add Question", new_question_path %>
-  <% end %>
-<% end %>
-<div class="question-list">
-  <ul>
-    <% @user.questions.each do |question| %>
-      <li><%= question.title %></li>
-    <% end %>
-  </ul>
+    <div class="info_container col-xs-4 col-sm-4">
+      <div class="user_info">
+        <h2>Name:</h2></h3><%= @user.name %></h3><br>
+        <h2>Email:</h2></h3><%= @user.email %></h3><br>
+      </div>
+    </div>
+
+    <div class="settings_container col-xs-4 col-sm-4">
+      <div id="user_settings">
+        <% if current_user %>
+          <% if @user.id == current_user.id  %>
+            <%= link_to "Edit Profile", edit_user_path(@user) %><br>
+            <%= link_to "Delete Account", user_path(@user), method: :delete %><br>
+            <%= link_to "Ask a New Question", new_question_path %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+
+  <div id="user-questions-list">
+    <h2>Your Questions:</h2>
+    <ul>
+      <% @user.questions.each do |question| %>
+        <li><%= link_to "#{question.title}", question_path(question) %></li><hr>
+      <% end %>
+    </ul>
+  </div>
+
 </div>
