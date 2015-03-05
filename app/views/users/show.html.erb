@@ -30,7 +30,7 @@
   <hr>
 
   <div id="user-questions-list">
-    <h2>Your Questions:</h2>
+    <h2><%= @user.name %>'s Questions:</h2>
     <ul>
       <% @user.questions.each do |question| %>
         <li><%= link_to "#{question.title}", question_path(question) %></li><hr>

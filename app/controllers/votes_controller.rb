@@ -3,6 +3,7 @@ class VotesController < ApplicationController
   before_action :set_votable_id
 
   def show
+    @vote = Vote.find(params[:id])
   end
 
   def create
@@ -13,7 +14,8 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @vote = Vote.find(params[:id])
+    @vote = Vote.find_by(votable_id: params[:votable_id])
+    # @vote = Vote.find(params[:id])
     @vote.destroy
     @question = Question.find(@answer.question_id)
     @answers = @question.answers
