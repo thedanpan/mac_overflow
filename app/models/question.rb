@@ -9,7 +9,7 @@ class Question < ActiveRecord::Base
 
   def edited_time
     if Time.now - self.updated_at < 60
-      (Time.now.utc - self.updated_at).round(0) + " seconds ago"
+      (Time.now.utc - self.updated_at).round(0).to_s + " seconds ago"
     elsif Time.now - self.updated_at > 60 && Time.now - self.updated_at < 3600
       ((Time.now.utc - self.updated_at).round(0)/60).to_s + " minutes ago"
     # minutes
