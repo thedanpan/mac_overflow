@@ -3,6 +3,7 @@ class VotesController < ApplicationController
   before_action :set_votable_id
 
   def show
+    @vote = Vote.find(params[:id])
   end
 
   def create
