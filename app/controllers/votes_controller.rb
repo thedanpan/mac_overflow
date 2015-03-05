@@ -14,7 +14,8 @@ class VotesController < ApplicationController
   end
 
   def destroy
-    @vote = Vote.find(params[:id])
+    @vote = Vote.find_by(votable_id: params[:votable_id])
+    # @vote = Vote.find(params[:id])
     @vote.destroy
     @question = Question.find(@answer.question_id)
     @answers = @question.answers
