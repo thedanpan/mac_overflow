@@ -3,8 +3,8 @@
     <h1><%= @question.title %></h1><br><hr>
     <%= @question.prompt %><br><br>
     By <%= @question.user.name %><br>
-    Edited <%= @question.edited_time %><br>
-    Answered <%= @question.answered_time %>
+    Edited <%= edited_time(@question) %><br>
+    Answered <%= answered_time(@question) %>
     <% if current_user %>
       <% if current_user.id == @question.user_id %>
         <%= button_to "Edit", edit_question_path(@question), :method => :get %>
