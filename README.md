@@ -1,6 +1,9 @@
 # Mac Overflow
 
-No apples found here. Strictly Mac &amp; Cheese Megaflow.
+*"No apples found here. Strictly Mac &amp; Cheese Megaflow."*
+
+A Rails application that mimics Stack Overflow where users can post questions, answers, and comments on anything related to Mac & Cheese. Emphasis on agile team development, TDD, as well as implementing secure polymorphic associations.
+
 
 ## Brought to you by:
 [Ricky Thomas](https://www.github.com/ricky-thomas)
@@ -10,23 +13,6 @@ No apples found here. Strictly Mac &amp; Cheese Megaflow.
 [Pearl Shin](https://www.github.com/pearlshin)
 
 [Darrin Reeves](https://www.github.com/dxr4841)
-
-
-## MVP:
-  - A user can login/signup/logout
-  - A user can post questions, answers, comments only when logged in
-  - A user can edit/delete questions, answers, comments only when logged in and is the author
-
-
-## Goals:
-  - Agile Teamwork through clear and effective communication
-  - Integrity, Kindness, Effort
-  - Firm understanding of Rails and TDD
-  - Polymorphic Associations
-  - Thorough understanding of mac & cheese
-  - Megaflow
-  - UX | UI
-  - CSS
 
 
 ## [Trello](https://trello.com/b/E5N6byo9/hack-over-flow)
